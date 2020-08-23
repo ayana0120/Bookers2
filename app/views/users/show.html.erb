@@ -1,0 +1,17 @@
+<div class="col-md-9">
+  <h2>Books</h2>
+  <table class="table table-user-show">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th><%= link_to book.title, book_path(@book) %></th>
+        <th><%= book.opinion %></th>
+      </tr>
+    </tbody>
+  </table>
+</div>

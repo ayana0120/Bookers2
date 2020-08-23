@@ -1,0 +1,19 @@
+<div class="col-md-9">
+  <table class="book-index">
+  	<thead>
+  	  <h2>Books</h2>
+  	</thead>
+  	<tbody>
+  	  <% @books.each do |book| %>
+  	  	<tr>
+  	  	  <th>Title</th>
+  	  	  <th>Opinion</th>
+  	  	</tr>
+  	    <tr>
+  	      <th><%= book.title %></th>
+  	      <th><%= book.body %></th>
+  	    </tr>
+  	  <% end %>
+  	</tbody>
+  </table>
+</div>

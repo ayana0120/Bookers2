@@ -14,7 +14,7 @@
      	  <% @book.errors.full_messages.each do |message| %>
         	<li><%= message %></li>
       	  <% end %>
-    	</ul>
+    	  </ul>
   		</div>
   	  <% end %>
   	  <div class="col-md-3">
@@ -34,7 +34,7 @@
     <table class="table table-user-show">
       <tr>
   	    <tr>
-  	      <td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%></td>
+  	      <td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg"%></td>
   	      <td><%= link_to user.name, user_path(current_user) %></td>
   	    </tr>
         <td><%= books.title %></td>

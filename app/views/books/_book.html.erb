@@ -1,22 +1,20 @@
-<%= form_for(book) do |f| %>
+<h2>New book</h2>
+<%= form_for(@book) do |f| %>
   <% if book.errors.any? %>
-  <div class="error">
+    <div class="error">
       <h3><%= book.errors.count %> errors prohibited this book from being saved:</h3>
-    <ul>
-    <% book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-    <h2>New book</h2>
-      <form>
-        <div class="form-title"><b>Title</b></div>
-          <%= f.text_field :title %>
-        <div class="form-body"><b>Opinion</b></div>
-          <%= f.text_area :body %><br>
-        <div class="upload">
-          <%= f.submit " Create Book" %>
-        </div>
-      </form>
+    <div class="form-title"><b>Title</b></div>
+      <%= f.text_field :title %>
+    <div class="form-body"><b>Opinion</b></div>
+      <%= f.text_area :body %><br>
+    <div class="upload">
+      <%= f.submit " Create Book" %>
+    </div>
 <% end %>

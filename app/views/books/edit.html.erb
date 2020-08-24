@@ -11,18 +11,14 @@
           </ul>
         </div>
       <% end %>
+    <div class="form-title">Title</div>
+      <%= f.text_field :title %>
+    <div class="form-body">Opinion</div>
+      <%= f.text_area :body %><br>
+    <div class="upload">
+      <%= f.submit " Update Book" %>
+    </div>
     <% end %>
-    <form>
-      <div class="form-group ">
-        <label>Title</label>
-        <input type="text" name="title" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="bodyTextarea">Opinion</label>
-        <textarea class="form-control" id="bodyTextarea"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Update Book</button>
-    </form>
     <div class="menu">
       <%= link_to "Show", book_path(@book) %>
       |

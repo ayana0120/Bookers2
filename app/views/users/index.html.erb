@@ -1,16 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-  	  <table class="user-index">
-  	  	<thead>
+  	  <table class="table user-index">
   	  	  <h2>Users</h2>
-  	  	</thead>
+            <thead>
+              <th>image</th>
+              <th>name</th>
+              <th></th>
+  	  	    </thead>
   	  	<tbody>
-  	  	  <%= @users.each do |user| %>
+  	  	  <% @users.each do |user| %>
 	  	  	<tr>
-	  	  	  <td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg"%></td>
-	  	  	  <td><%= @user.namge %></td>>
-	  	  	  <th><%= link_to "Show", user_path(user.id) %></th>
+	  	  	  <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg"%></td>
+	  	  	  <td><%= @user.name %></td>
+	  	  	  <td><%= link_to "Show", user_path(user.id) %></td>
 	  	  	</tr>
   	  	  <% end %>
   	  	</tbody>

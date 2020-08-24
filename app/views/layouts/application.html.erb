@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="">
-            <%= link_to "Home", users_path(@user) %>
+            <%= link_to "Home", user_path(current_user) %>
           </li>
           <li class="">
             <%= link_to "User", users_path %>

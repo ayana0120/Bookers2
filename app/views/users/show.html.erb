@@ -17,14 +17,12 @@
             <th><%= @user.introduction %></th>
         </tr>
         <tr>
-        <% if user.id == current_user.id %>
           <th colspan="2"><button type="button" class="btn btn-block">
-            <%= link_to edit_user_path(@user) do %>
+            <%= link_to edit_user_path(current_user) do %>
               <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
             <% end %>
           </button>
           </th>
-        <% end %>
         </tr>
         </tbody>
       </table>
@@ -40,8 +38,6 @@
         </thead>
         <tbody>
           <tr>
-            <th><%= link_to book.title, book_path(book.id) %></th>
-            <th><%= book.opinion %></th>
           </tr>
         </tbody>
       </table>

@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
 
   def show
-    @user = current_user
     @book = Book.new
+    @books = Book.all
+    @user = current_user
   end
 
   def index
     @user = current_user
     @users = User.all
     @book = Book.new
+    @books = Book.all
   end
 
   def edit
@@ -22,12 +24,12 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     else
       @users = User.all
-      render :edit
+      render :show
     end
   end
 
   private
   def user_params
-  	params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 end

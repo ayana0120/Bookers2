@@ -1,31 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <table class="table table-user">
-        <h2>User info</h2>
-        <thead>
-          <tr><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <th><%= @user.name %></th>
-          </tr>
-          <tr>
-            <th>Introduction</th>
-            <th><%= @user.introduction %></th>
-        </tr>
-        <tr>
-          <th colspan="2"><button type="button" class="btn btn-block">
-            <%= link_to edit_user_path(current_user) do %>
-              <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-            <% end %>
-          </button>
-          </th>
-        </tr>
-        </tbody>
-      </table>
+      <%= render 'users/user', user: @user %>
+      <%= render 'books/book', book: @book %>
     </div>
     <div class="col-md-9">
       <h2>Books</h2>
@@ -38,6 +15,8 @@
         </thead>
         <tbody>
           <tr>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
           </tr>
         </tbody>
       </table>

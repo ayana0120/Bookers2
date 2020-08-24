@@ -1,46 +1,23 @@
 <div class="container">
   <div class="row">
-    <p id="notice"><%= notice %></p>
-	  <% if flash[:complete] %>
-		<div class="flash">
-	      <%= flash[:complete] %>
-		</div>
- 	  <% end %>
-	<%= form_for(@book) do |f| %>
-  	  <% if @book.errors.any? %>
-  		<div class="error">
-          <h3><%= @book.errors.count %> errors prohibited this book from being saved:</h3>
-        <ul>
-     	  <% @book.errors.full_messages.each do |message| %>
-        	<li><%= message %></li>
-      	  <% end %>
-    	  </ul>
-  		</div>
-  	  <% end %>
-  	  <div class="col-md-3">
-      	<h2>New book</h2>
-          <div class="form-title">Title</div>
-            <%= f.text_field :title %>
-          <div class="form-body">Opinion</div>
-            <%= f.text_area :body %><br>
-          <div colspan="2">
-          	<button type="button" class="btn btn-default btn-block">Create Book</button>
-          </div>
-      </div>
-    <% end %>
-</div>
-<div class="col-md-9">
-  <h1>Book detail</h1>
-    <table class="table table-user-show">
-      <tr>
-  	    <tr>
-  	      <td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg"%></td>
-  	      <td><%= link_to user.name, user_path(current_user) %></td>
-  	    </tr>
-        <td><%= books.title %></td>
-        <td><button type="button" class="btn btn-success btn-block">edit</button></td>
-        <td><button type="button" class="btn btn-danger btn-block">destroy</button></td>
-      </tr>
-  	</table>
+    <div class="col-md-3">
+      <%= render 'users/user', user: @user %>
+      <%= render 'books/book', book: @book %>
+    </div>
+    <div class="col-md-9">
+      <h1>Book detail</h1>
+        <table class="table table-user-show">
+          <tr>
+    	      <td><%= attachment_image_tag @user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg"%></td>
+    	      <th><%= link_to user.name, user_path(user) %></th>
+            <th><%= link_to book.title, book_path(user) %></th>
+            <th><%= book.body %></span></th>
+            <% if @book.user == current_user %>
+              <td><%= link_to "Edit", edit_book_path(book), class:"btn btn-success"%></td>
+              <td><%= link_to "Destroy", book_path(book), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger" %></td>
+            <% end %>
+          </tr>
+      	</table>
+    </div>
   </div>
 </div>

@@ -24,7 +24,7 @@ class BooksController < ApplicationController
     else
       @user = current_user
       @book = @book.user_id
-      render :show
+      render :index
     end
   end
 

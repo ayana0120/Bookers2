@@ -1,22 +1,12 @@
 <h2>New book</h2>
 <%= form_for(book) do |f| %>
-  <% if book.errors.any? %>
-    <div class="error">
-      <h3><%= book.errors.count %> errors prohibited this book from being saved:</h3>
-      <ul>
-        <% book.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-      <div class="form-group">
-        <label for="item_コメント">Title</label>
-        <input type="text" class="form-control" name="book[title]" id="title">
-      </div>
-      <div class="form-group">
-        <label for="comment">Title</label>
-        <textarea class="form-control" name="book[body]" id="opinion"></textarea>
-      </div>
-      <input type="submit" class="btn btn-primary btn-block" value="Create Book">
+  <div class="form-group">
+    <label for="item_コメント">Title</label>
+    <input type="text" class="form-control" name="book[title]" id="title">
+  </div>
+  <div class="form-group">
+    <label for="comment">Title</label>
+    <textarea class="form-control" name="book[body]" id="opinion"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary btn-block" value="Create Book">
 <% end %>
